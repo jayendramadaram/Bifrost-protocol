@@ -23,12 +23,10 @@ BiFrost Protocol is a revolutionary decentralized aggregation layer designed to 
 
 ## Technical Stack
 
-- Frontend: Next.js, React
+- Frontend: tailwind, React, thirdweb
 - Smart Contracts: Solidity (Ethereum), Bitcoin Script
-- Cryptography: Schnorr Signatures, FROST
-- AI/ML: TensorFlow, PyTorch for NLP-based trading algorithms
-- Secure Hardware: Intel SGX for Trusted Execution Environments
-- Cross-Chain Communication: Custom bridge protocols and atomic swaps
+- Cryptography: Schnorr Signatures, FROST, sp1 zk
+- Secure Hardware: Intel SGX for Trusted Execution Environments Simulated
 
 ## Dark Pool Trading
 
@@ -67,31 +65,26 @@ BiFrost Protocol achieves true decentralization and security through:
 
 1. Clone the repository:
 
-git clone https://github.com/your-username/BiFrost-protocol.git
+git clone https://github.com/jayendramadaram/Bifrost-protocol
 
 2. Install dependencies:
 
-cd BiFrost-protocol yarn install
 
 3. Set up environment variables:
 
-cp .env.example .env.local
 
-Edit `.env.local` with your configuration details.
 
 4. Run the development server:
 
-yarn dev
 
-5. Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
 
 ## Usage
 
 1. Connect your Web3 wallet to the application.
 2. Choose the source and destination blockchains for your trade.
 3. Enter the amount and asset you wish to trade.
-4. Set advanced options (e.g., limit orders, dark pool execution).
-5. Confirm the transaction and wait for the cross-chain swap to complete.
+4. Confirm the transaction and wait for the cross-chain swap to complete.
+5. witness smpc taking place in backend
 
 ## Roadmap
 
