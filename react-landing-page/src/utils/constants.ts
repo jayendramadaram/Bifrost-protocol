@@ -13,6 +13,20 @@ export const chains: Record<string, Chain> = {
     "evm:optimism": OpSepoliaTestnet,
     "evm:bnb": BinanceTestnet,
     "evm:moonbase": MoonbaseAlpha,
+    "evm:citrea" : {
+        chain : "Citrea",
+        chainId: 5115,
+        rpc: ["https://rpc.testnet.citrea.xyz"],
+        testnet: true,
+        name: "citrea",
+        nativeCurrency: {
+            name: "cBTC",
+            decimals: 8,
+            symbol: "cBTC",
+        },
+        shortName: "citrea",
+        slug: "citrea",
+    }
     // "evm:linea" : LineaSepolia,
     // "evm:morph" : MorphHolesky,
     // "evm:flow" : Testnet,
@@ -29,7 +43,7 @@ export const vaultAddressMap: Record<string, string> = {
     'optimism': '0x8E53eF2Cf6800E209EABf1AC3a8383d16140D029', // Token : 0xdbfa6D8aC5e5d684E4Fe6B0830242D8A716E748D  
     'bnb' : '0x21BaCd0133C09baC8E29550c4BB3F1072F753CDA', // Token : 0x8478C8835EAba59ae934cfb3fe20D3D387f33F9C 
     'moonbase' : '0xDeb4C7AB99e46aFEbfE374F6a7BBFB63D309166f',
-
+    'citrea' : '0x380d4823c2EB326294Cf465a189354792Fe36FC7'
     // 'hedera' : '0xDeb4C7AB99e46aFEbfE374F6a7BBFB63D309166f', // Token : 0xdbfa6D8aC5e5d684E4Fe6B0830242D8A716E748D   
     // 'flow' : '0xDeb4C7AB99e46aFEbfE374F6a7BBFB63D309166f', // Token : 0xdbfa6D8aC5e5d684E4Fe6B0830242D8A716E748D   
     // 'morph' : '0xDeb4C7AB99e46aFEbfE374F6a7BBFB63D309166f', // Token : 0xdbfa6D8aC5e5d684E4Fe6B0830242D8A716E748D   
@@ -44,7 +58,7 @@ export const tokenAddressMap: Record<string, string> = {
     'optimism': '0x5563e709fB9F382Ffdad188ECF5968b98AA1669d', // Token : 0xdbfa6D8aC5e5d684E4Fe6B0830242D8A716E748D
     'bnb' : '0x8478C8835EAba59ae934cfb3fe20D3D387f33F9C',  
     'moonbase' : '0xdbfa6D8aC5e5d684E4Fe6B0830242D8A716E748D',
-
+    'citrea' : '0xB6b85F1EbE9DAc55643FDAAF55b27519502c8a83'
     // 'hedera' : '0xdbfa6D8aC5e5d684E4Fe6B0830242D8A716E748D', // Token : 0xdbfa6D8aC5e5d684E4Fe6B0830242D8A716E748D
     // 'flow' : '0xdbfa6D8aC5e5d684E4Fe6B0830242D8A716E748D', // Token : 0xdbfa6D8aC5e5d684E4Fe6B0830242D8A716E748D
     // 'morph' : '0xdbfa6D8aC5e5d684E4Fe6B0830242D8A716E748D', // Token : 0xdbfa6D8aC5e5d684E4Fe6B0830242D8A716E748D

@@ -2,6 +2,7 @@ BiFrost Backend
 
 [Complete pitch deck and project explaination](https://xythum.my.canva.site/bifrost-protocol)
 
+[video demo](https://www.youtube.com/watch?v=x-kDj8GuRCY)
 
 
 # BiFrost Protocol: AI-Powered Decentralized Cross-Chain Aggregation Layer

@@ -16,8 +16,9 @@ const explorerUrls = {
   "evm:base": "https://sepolia.basescan.org/tx/",
   "evm:scroll": "https://sepolia.scrollscan.com/tx/",
   "evm:optimism": "https://sepolia-optimism.etherscan.io/tx/",
-  "eevm:bnb": "https://testnet.bscscan.com/tx/",
+  "evm:bnb": "https://testnet.bscscan.com/tx/",
   "evm:moonbase": "https://moonbase.moonscan.io/tx/",
+  "evm:citrea" : "https://explorer.testnet.citrea.xyz/tx/"
 };
 
 export const OrderView: React.FC<OrderDetailProps> = ({ order }) => {

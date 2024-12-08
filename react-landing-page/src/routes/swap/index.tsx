@@ -10,7 +10,8 @@ import { IoMdArrowDropdown } from "react-icons/io";
 import toast, { Toaster } from "react-hot-toast";
 import Modal from "react-modal";
 import { MdOutlineSwapVert } from "react-icons/md";
-import TransactionLoader from "./TransactionLoader";
+// import TransactionLoader from "./TransactionLoader";
+import { Params, useParams } from "react-router-dom";
 import {
   chains,
   SERVER_API,
@@ -33,6 +34,7 @@ type Tchains =
   | "evm:scroll"
   | "evm:optimism"
   | "evm:bnb"
+  | "evm:citrea"
   | "evm:moonbase"
   | "bitcoin";
 
@@ -119,6 +121,12 @@ export const chainInfo: ChainInfo = {
       "https://s2.coinmarketcap.com/static/img/coins/200x200/1839.png",
     chain: "BNB",
     asset: "0x8478C8835EAba59ae934cfb3fe20D3D387f33F9C",
+  },
+  "evm:citrea": {
+    imgurl:
+      "https://pbs.twimg.com/profile_images/1749704652545728513/AiL1r5pP_400x400.jpg",
+    chain: "Citrea",
+    asset: "0xB6b85F1EbE9DAc55643FDAAF55b27519502c8a83",
   },
   bitcoin: {
     imgurl:
@@ -281,7 +289,7 @@ export default function Swap() {
   const handleSubmit = async (e: any) => {
     e.preventDefault();
 
-    order.amount = Math.floor(Number(amount));
+    order.amount = Math.floor(Number(amount) / 10 ** 8);
     console.log("Order:", order);
     if (order.toChain.startsWith("evm:")) {
       order.toAddress = address!;
@@ -447,6 +455,33 @@ export default function Swap() {
     };
   }, []);
 
+  interface TransferParams extends Params {
+    amountfromurl?: string;
+    fromchain?: string;
+    tochain?: string;
+  }
+
+  const { amountfromurl, fromchain, tochain } = useParams<TransferParams>();
+
+  useEffect(() => {
+    const amountNumber = amountfromurl ? parseFloat(amountfromurl) : null;
+
+    if (amountNumber) {
+      setAmount(amountNumber * 10 ** 8);
+      setOrder((prevOrder) => ({
+        ...prevOrder,
+        amount: amountNumber,
+        fromChain: (fromchain ? fromchain : prevOrder.fromChain) as Tchains,
+        toChain: (tochain ? tochain : prevOrder.toChain) as Tchains,
+        toAsset:
+          chainInfo[(tochain ? tochain : prevOrder.toChain) as Tchains].asset,
+        fromAsset:
+          chainInfo[(fromchain ? fromchain : prevOrder.fromChain) as Tchains]
+            .asset,
+      }));
+    }
+  }, [amountfromurl, fromchain, tochain]);
+
   return (
     <div>
       <div className="SwapUi bg-opacity-90 text-white w-screen h-screen">
@@ -456,7 +491,7 @@ export default function Swap() {
             onClick={() => (window.location.href = "/")}
           />
           <a href="/" className="text-2xl font-extrabold italic">
-            Xythum Bridge
+            Bifrost Bridge
           </a>
         </div>
 
@@ -595,7 +630,9 @@ export default function Swap() {
                           placeholder="Enter Amount"
                           type="number"
                           className="rounded-l-lg outline-none w-10/12 px-3 py-2 bg-black"
+                          value={amount / (10 ** 8)}
                           onChange={(e) =>
+
                             setAmount(Number(e.target.value) * 10 ** 8)
                           }
                         />
@@ -829,6 +866,7 @@ export default function Swap() {
                         placeholder="Enter Amount"
                         type="number"
                         className=" rounded-l-lg outline-none w-10/12 px-3 py-2 bg-black"
+                        value={amount / (10 ** 8)}
                         onChange={(e) =>
                           setAmount(Number(e.target.value) * 10 ** 8)
                         }

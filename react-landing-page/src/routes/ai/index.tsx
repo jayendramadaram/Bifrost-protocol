@@ -24,13 +24,9 @@ Supported chains:
 - evm:scroll
 - evm:amoy
 - evm:optimism
-- evm:hedera
-- evm:linea
-- evm:morph
-- evm:flow
-- evm:airdao
-- evm:rootstock
-- evm:gnosis
+- evm:bnb
+- evm:citrea
+- evm:moonbase
 - bitcoin
 
 Rules for order creation:
@@ -51,6 +47,8 @@ Response: "To create your order, I need to know the amount of BTC you want to br
 
 User: "2000"
 Response: { amount: 2000, fromChain: "bitcoin", toChain: "evm:amoy" }
+
+Note: for evms its xBTC and BTC is for bitcoin.
 `;
 const App: React.FC = () => {
   const [message, setMessage] = useState("");
